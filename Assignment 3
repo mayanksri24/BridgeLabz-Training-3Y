@@ -1,1 +1,307 @@
+//1. Check if number is divisible by 5
+import java.util.Scanner;
+
+public class DivisibleBy5 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number: ");
+        int number = sc.nextInt();
+        boolean divisible = (number % 5 == 0);
+        System.out.println("Is the number " + number + " divisible by 5? " + divisible);
+        sc.close();
+    }
+}
+
+//2. Check if first is smallest of 3 numbers
+import java.util.Scanner;
+
+public class SmallestCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n1 = sc.nextInt(), n2 = sc.nextInt(), n3 = sc.nextInt();
+        boolean smallest = (n1 < n2 && n1 < n3);
+        System.out.println("Is the first number the smallest? " + smallest);
+        sc.close();
+    }
+}
+
+//3. Check largest among 3 numbers
+import java.util.Scanner;
+
+public class LargestCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n1 = sc.nextInt(), n2 = sc.nextInt(), n3 = sc.nextInt();
+        System.out.println("Is the first number the largest? " + (n1 >= n2 && n1 >= n3));
+        System.out.println("Is the second number the largest? " + (n2 >= n1 && n2 >= n3));
+        System.out.println("Is the third number the largest? " + (n3 >= n1 && n3 >= n2));
+        sc.close();
+    }
+}
+
+//4. Natural number check + sum
+import java.util.Scanner;
+
+public class NaturalSum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n > 0) {
+            int sum = n * (n + 1) / 2;
+            System.out.println("The sum of " + n + " natural numbers is " + sum);
+        } else {
+            System.out.println("The number " + n + " is not a natural number");
+        }
+        sc.close();
+    }
+}
+
+//5. Voting eligibility
+import java.util.Scanner;
+
+public class VoteCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int age = sc.nextInt();
+        if (age >= 18)
+            System.out.println("The person's age is " + age + " and can vote.");
+        else
+            System.out.println("The person's age is " + age + " and cannot vote.");
+        sc.close();
+    }
+}
+
+//6. Positive, negative, or zero
+import java.util.Scanner;
+
+public class NumberType {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        if (num > 0) System.out.println("positive");
+        else if (num < 0) System.out.println("negative");
+        else System.out.println("zero");
+        sc.close();
+    }
+}
+
+//7. Spring Season
+public class SpringSeason {
+    public static void main(String[] args) {
+        int month = Integer.parseInt(args[0]);
+        int day = Integer.parseInt(args[1]);
+
+        boolean spring = (month == 3 && day >= 20) || (month == 4) || (month == 5) || (month == 6 && day <= 20);
+        if (spring)
+            System.out.println("Its a Spring Season");
+        else
+            System.out.println("Not a Spring Season");
+    }
+}
+
+//8. Countdown using while loop
+import java.util.Scanner;
+
+public class CountdownWhile {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int counter = sc.nextInt();
+        while (counter >= 1) {
+            System.out.println(counter);
+            counter--;
+        }
+        System.out.println("Rocket Launched!");
+        sc.close();
+    }
+}
+
+//9. Countdown using for loop
+import java.util.Scanner;
+
+public class CountdownFor {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int counter = sc.nextInt();
+        for (int i = counter; i >= 1; i--) {
+            System.out.println(i);
+        }
+        System.out.println("Rocket Launched!");
+        sc.close();
+    }
+}
+
+//10. Sum until user enters 0
+import java.util.Scanner;
+
+public class SumUntilZero {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double total = 0, num;
+        while (true) {
+            num = sc.nextDouble();
+            if (num == 0) break;
+            total += num;
+        }
+        System.out.println("Total = " + total);
+        sc.close();
+    }
+}
+
+//11. Sum until 0 or negative
+import java.util.Scanner;
+
+public class SumUntilNegative {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double total = 0;
+        while (true) {
+            double num = sc.nextDouble();
+            if (num <= 0) break;
+            total += num;
+        }
+        System.out.println("Total = " + total);
+        sc.close();
+    }
+}
+
+//12. Sum of n natural numbers (while loop)
+import java.util.Scanner;
+
+public class NaturalSumWhile {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n > 0) {
+            int sumFormula = n * (n + 1) / 2;
+            int sumLoop = 0, i = 1;
+            while (i <= n) {
+                sumLoop += i;
+                i++;
+            }
+            System.out.println("Formula Sum = " + sumFormula + ", Loop Sum = " + sumLoop);
+        } else System.out.println("Not a natural number");
+        sc.close();
+    }
+}
+
+//13. Sum of n natural numbers (for loop)
+import java.util.Scanner;
+
+public class NaturalSumFor {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n > 0) {
+            int sumFormula = n * (n + 1) / 2;
+            int sumLoop = 0;
+            for (int i = 1; i <= n; i++) sumLoop += i;
+            System.out.println("Formula Sum = " + sumFormula + ", Loop Sum = " + sumLoop);
+        } else System.out.println("Not a natural number");
+        sc.close();
+    }
+}
+
+//14. Factorial using while loop
+import java.util.Scanner;
+
+public class FactorialWhile {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n >= 0) {
+            int fact = 1, i = 1;
+            while (i <= n) {
+                fact *= i;
+                i++;
+            }
+            System.out.println("Factorial = " + fact);
+        } else System.out.println("Not a natural number");
+        sc.close();
+    }
+}
+
+//15. Factorial using for loop
+import java.util.Scanner;
+
+public class FactorialFor {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n >= 0) {
+            int fact = 1;
+            for (int i = 1; i <= n; i++) fact *= i;
+            System.out.println("Factorial = " + fact);
+        } else System.out.println("Not a natural number");
+        sc.close();
+    }
+}
+
+//16. Print odd/even numbers
+import java.util.Scanner;
+
+public class OddEven {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n > 0) {
+            for (int i = 1; i <= n; i++) {
+                if (i % 2 == 0) System.out.println(i + " is even");
+                else System.out.println(i + " is odd");
+            }
+        } else System.out.println("Not a natural number");
+        sc.close();
+    }
+}
+
+//17. Employee Bonus
+import java.util.Scanner;
+
+public class EmployeeBonus {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double salary = sc.nextDouble();
+        int years = sc.nextInt();
+        if (years > 5) {
+            double bonus = 0.05 * salary;
+            System.out.println("Bonus = " + bonus);
+        } else {
+            System.out.println("No Bonus");
+        }
+        sc.close();
+    }
+}
+
+//18. Multiplication table (6 to 9)
+import java.util.Scanner;
+
+public class MultiplicationTable {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number = sc.nextInt();
+        for (int i = 6; i <= 9; i++) {
+            System.out.println(number + " * " + i + " = " + (number * i));
+        }
+        sc.close();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
