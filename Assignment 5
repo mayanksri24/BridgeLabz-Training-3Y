@@ -1,1 +1,671 @@
+//1.Compare Two Strings Using charAt() vs equals()
+import java.util.Scanner;
+
+public class StringCompareCharAt {
+    public static boolean compareStrings(String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+        for (int i = 0; i < s1.length(); i++) {
+            if (s1.charAt(i) != s2.charAt(i)) return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first string: ");
+        String str1 = sc.next();
+        System.out.print("Enter second string: ");
+        String str2 = sc.next();
+
+        boolean userDefinedResult = compareStrings(str1, str2);
+        boolean builtInResult = str1.equals(str2);
+
+        System.out.println("User-defined comparison result: " + userDefinedResult);
+        System.out.println("Built-in equals() result: " + builtInResult);
+
+        sc.close();
+    }
+}
+
+//2.Substring Using charAt() vs Built-in substring()
+import java.util.Scanner;
+
+public class SubstringCompare {
+    public static String customSubstring(String text, int start, int end) {
+        String result = "";
+        for (int i = start; i < end; i++) {
+            result += text.charAt(i);
+        }
+        return result;
+    }
+
+    public static boolean compareStrings(String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+        for (int i = 0; i < s1.length(); i++) {
+            if (s1.charAt(i) != s2.charAt(i)) return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter text: ");
+        String text = sc.next();
+        System.out.print("Enter start index: ");
+        int start = sc.nextInt();
+        System.out.print("Enter end index: ");
+        int end = sc.nextInt();
+
+        String custom = customSubstring(text, start, end);
+        String builtin = text.substring(start, end);
+
+        System.out.println("Custom substring: " + custom);
+        System.out.println("Built-in substring: " + builtin);
+        System.out.println("Are both equal? " + compareStrings(custom, builtin));
+
+        sc.close();
+    }
+}
+
+//3.Return All Characters Without toCharArray()
+import java.util.Scanner;
+
+public class StringToCharArray {
+    public static char[] customToCharArray(String text) {
+        char[] result = new char[text.length()];
+        for (int i = 0; i < text.length(); i++) {
+            result[i] = text.charAt(i);
+        }
+        return result;
+    }
+
+    public static boolean compareArrays(char[] a1, char[] a2) {
+        if (a1.length != a2.length) return false;
+        for (int i = 0; i < a1.length; i++) {
+            if (a1[i] != a2[i]) return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter text: ");
+        String text = sc.next();
+
+        char[] custom = customToCharArray(text);
+        char[] builtin = text.toCharArray();
+
+        System.out.println("Arrays equal? " + compareArrays(custom, builtin));
+        sc.close();
+    }
+}
+
+//4.Demonstrate NullPointerException
+public class NullPointerDemo {
+    public static void generateException() {
+        String text = null;
+        System.out.println(text.length()); // NPE
+    }
+
+    public static void handleException() {
+        try {
+            String text = null;
+            System.out.println(text.length());
+        } catch (NullPointerException e) {
+            System.out.println("Caught NullPointerException!");
+        }
+    }
+
+    public static void main(String[] args) {
+        // generateException(); // Uncomment to see abrupt stop
+        handleException();
+    }
+}
+
+//5.Demonstrate StringIndexOutOfBoundsException
+import java.util.Scanner;
+
+public class StringIndexOutOfBoundsDemo {
+    public static void generateException(String text) {
+        System.out.println(text.charAt(text.length())); // out of range
+    }
+
+    public static void handleException(String text) {
+        try {
+            System.out.println(text.charAt(text.length()));
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("Caught StringIndexOutOfBoundsException!");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter text: ");
+        String input = sc.next();
+        // generateException(input);
+        handleException(input);
+        sc.close();
+    }
+}
+
+//6.Demonstrate IllegalArgumentException
+import java.util.Scanner;
+
+public class IllegalArgumentDemo {
+    public static void generateException(String text) {
+        System.out.println(text.substring(5, 2)); // start > end
+    }
+
+    public static void handleException(String text) {
+        try {
+            System.out.println(text.substring(5, 2));
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught IllegalArgumentException!");
+        } catch (RuntimeException e) {
+            System.out.println("Caught RuntimeException!");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter text: ");
+        String input = sc.next();
+        // generateException(input);
+        handleException(input);
+        sc.close();
+    }
+}
+
+//7.Demonstrate NumberFormatException
+import java.util.Scanner;
+
+public class NumberFormatDemo {
+    public static void generateException(String text) {
+        int num = Integer.parseInt(text); // not a number
+        System.out.println(num);
+    }
+
+    public static void handleException(String text) {
+        try {
+            int num = Integer.parseInt(text);
+            System.out.println("Converted number: " + num);
+        } catch (NumberFormatException e) {
+            System.out.println("Caught NumberFormatException!");
+        } catch (RuntimeException e) {
+            System.out.println("Caught RuntimeException!");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = sc.next();
+        // generateException(input);
+        handleException(input);
+        sc.close();
+    }
+}
+
+//8.Demonstrate ArrayIndexOutOfBoundsException
+import java.util.Scanner;
+
+public class ArrayIndexOutOfBoundsDemo {
+    public static void generateException(String[] arr) {
+        System.out.println(arr[arr.length]); // out of range
+    }
+
+    public static void handleException(String[] arr) {
+        try {
+            System.out.println(arr[arr.length]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Caught ArrayIndexOutOfBoundsException!");
+        } catch (RuntimeException e) {
+            System.out.println("Caught RuntimeException!");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] names = new String[3];
+        System.out.println("Enter 3 names:");
+        for (int i = 0; i < 3; i++) {
+            names[i] = sc.next();
+        }
+        // generateException(names);
+        handleException(names);
+        sc.close();
+    }
+}
+
+//9.Convert to Uppercase (Manual vs Built-in)
+import java.util.Scanner;
+
+public class ToUpperCaseDemo {
+    public static String toUpperCustom(String text) {
+        String result = "";
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+            if (ch >= 'a' && ch <= 'z') {
+                result += (char) (ch - 32);
+            } else {
+                result += ch;
+            }
+        }
+        return result;
+    }
+
+    public static boolean compareStrings(String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+        for (int i = 0; i < s1.length(); i++) {
+            if (s1.charAt(i) != s2.charAt(i)) return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter text: ");
+        String input = sc.nextLine();
+
+        String custom = toUpperCustom(input);
+        String builtin = input.toUpperCase();
+
+        System.out.println("Custom uppercase: " + custom);
+        System.out.println("Built-in uppercase: " + builtin);
+        System.out.println("Match? " + compareStrings(custom, builtin));
+        sc.close();
+    }
+}
+
+//10.Convert to Lowercase (Manual vs Built-in)
+import java.util.Scanner;
+
+public class ToLowerCaseDemo {
+    public static String toLowerCustom(String text) {
+        String result = "";
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+            if (ch >= 'A' && ch <= 'Z') {
+                result += (char) (ch + 32);
+            } else {
+                result += ch;
+            }
+        }
+        return result;
+    }
+
+    public static boolean compareStrings(String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+        for (int i = 0; i < s1.length(); i++) {
+            if (s1.charAt(i) != s2.charAt(i)) return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter text: ");
+        String input = sc.nextLine();
+
+        String custom = toLowerCustom(input);
+        String builtin = input.toLowerCase();
+
+        System.out.println("Custom lowercase: " + custom);
+        System.out.println("Built-in lowercase: " + builtin);
+        System.out.println("Match? " + compareStrings(custom, builtin));
+        sc.close();
+    }
+}
+
+//11.Find and return the length of a string without using length()
+import java.util.Scanner;
+
+public class StringLength {
+    // Method to find length without using length()
+    public static int findLength(String str) {
+        int count = 0;
+        try {
+            while (true) {
+                str.charAt(count); // will throw exception when count exceeds
+                count++;
+            }
+        } catch (StringIndexOutOfBoundsException e) {
+            return count; // return length once exception occurs
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Taking input
+        System.out.print("Enter a string: ");
+        String input = sc.next();
+
+        // Using user-defined method
+        int myLength = findLength(input);
+
+        // Using built-in method for verification
+        int builtInLength = input.length();
+
+        System.out.println("Length (User-defined): " + myLength);
+        System.out.println("Length (Built-in): " + builtInLength);
+
+        sc.close();
+    }
+}
+
+//12.Split the text into words (without using split()) & compare
+import java.util.Scanner;
+
+public class SplitWordsDemo {
+
+    // Method to find length (without length())
+    public static int findLength(String str) {
+        int count = 0;
+        try {
+            while (true) {
+                str.charAt(count);
+                count++;
+            }
+        } catch (StringIndexOutOfBoundsException e) {
+            return count;
+        }
+    }
+
+    // Method to split words manually
+    public static String[] splitWords(String text) {
+        int n = findLength(text);
+        int spaceCount = 0;
+
+        // Count spaces
+        for (int i = 0; i < n; i++) {
+            if (text.charAt(i) == ' ') {
+                spaceCount++;
+            }
+        }
+
+        // words = spaces+1
+        String[] words = new String[spaceCount + 1];
+        int wordIndex = 0, start = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (text.charAt(i) == ' ') {
+                words[wordIndex++] = text.substring(start, i);
+                start = i + 1;
+            }
+        }
+        words[wordIndex] = text.substring(start, n);
+
+        return words;
+    }
+
+    // Method to compare two string arrays
+    public static boolean compareArrays(String[] arr1, String[] arr2) {
+        if (arr1.length != arr2.length) return false;
+        for (int i = 0; i < arr1.length; i++) {
+            if (!arr1[i].equals(arr2[i])) return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a sentence: ");
+        String text = sc.nextLine();
+
+        String[] userWords = splitWords(text);
+        String[] builtInWords = text.split(" ");
+
+        System.out.println("\nWords (User-defined): ");
+        for (String w : userWords) System.out.println(w);
+
+        System.out.println("\nWords (Built-in split()): ");
+        for (String w : builtInWords) System.out.println(w);
+
+        boolean isSame = compareArrays(userWords, builtInWords);
+        System.out.println("\nComparison result: " + (isSame ? "MATCH" : "DO NOT MATCH"));
+
+        sc.close();
+    }
+}
+
+//13.Split the text into words and return the words along with their lengths in a 2D array
+import java.util.Scanner;
+
+public class WordsWithLengthDemo {
+
+    // Method to find string length without using length()
+    public static int findLength(String str) {
+        int count = 0;
+        try {
+            while (true) {
+                str.charAt(count);
+                count++;
+            }
+        } catch (StringIndexOutOfBoundsException e) {
+            return count;
+        }
+    }
+
+    // Method to split words manually
+    public static String[] splitWords(String text) {
+        int n = findLength(text);
+        int spaceCount = 0;
+
+        // Count spaces
+        for (int i = 0; i < n; i++) {
+            if (text.charAt(i) == ' ') spaceCount++;
+        }
+
+        String[] words = new String[spaceCount + 1];
+        int wordIndex = 0, start = 0;
+
+        for (int i = 0; i < n; i++) {
+            if (text.charAt(i) == ' ') {
+                words[wordIndex++] = text.substring(start, i);
+                start = i + 1;
+            }
+        }
+        words[wordIndex] = text.substring(start, n);
+
+//14.Split words and find the shortest & longest strings
+import java.util.Scanner;
+
+public class ShortestLongestWord {
+
+    // Method to find length without length()
+    public static int findLength(String str) {
+        int count = 0;
+        try {
+            while (true) {
+                str.charAt(count);
+                count++;
+            }
+        } catch (StringIndexOutOfBoundsException e) {
+            return count;
+        }
+    }
+
+    // Split words manually
+    public static String[] splitWords(String text) {
+        int n = findLength(text);
+        int spaceCount = 0;
+        for (int i = 0; i < n; i++) {
+            if (text.charAt(i) == ' ') spaceCount++;
+        }
+        String[] words = new String[spaceCount + 1];
+        int index = 0, start = 0;
+        for (int i = 0; i < n; i++) {
+            if (text.charAt(i) == ' ') {
+                words[index++] = text.substring(start, i);
+                start = i + 1;
+            }
+        }
+        words[index] = text.substring(start, n);
+        return words;
+    }
+
+    // Method to find shortest & longest
+    public static String[] findShortestLongest(String[] words) {
+        String shortest = words[0], longest = words[0];
+
+        for (String w : words) {
+            if (findLength(w) < findLength(shortest)) shortest = w;
+            if (findLength(w) > findLength(longest)) longest = w;
+        }
+
+        return new String[]{shortest, longest};
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String text = sc.nextLine();
+
+        String[] words = splitWords(text);
+        String[] result = findShortestLongest(words);
+
+        System.out.println("\nShortest Word: " + result[0] + " (Length: " + findLength(result[0]) + ")");
+        System.out.println("Longest Word: " + result[1] + " (Length: " + findLength(result[1]) + ")");
+        sc.close();
+    }
+}
+
+//15.Find vowels & consonants count
+import java.util.Scanner;
+
+public class VowelConsonantCount {
+
+    // Check type
+    public static String checkCharType(char ch) {
+        if (ch >= 'A' && ch <= 'Z') ch = (char)(ch + 32); // convert to lowercase
+
+        if (ch >= 'a' && ch <= 'z') {
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+                return "Vowel";
+            else
+                return "Consonant";
+        }
+        return "Not a Letter";
+    }
+
+    // Count vowels and consonants
+    public static int[] countVowelsConsonants(String text) {
+        int vowels = 0, consonants = 0;
+        for (int i = 0; i < text.length(); i++) {
+            String type = checkCharType(text.charAt(i));
+            if (type.equals("Vowel")) vowels++;
+            else if (type.equals("Consonant")) consonants++;
+        }
+        return new int[]{vowels, consonants};
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a text: ");
+        String text = sc.nextLine();
+
+        int[] result = countVowelsConsonants(text);
+
+        System.out.println("\nVowels: " + result[0]);
+        System.out.println("Consonants: " + result[1]);
+        sc.close();
+    }
+}
+
+//16.Vowels & Consonants with character type
+import java.util.Scanner;
+
+public class VowelConsonantType {
+
+    public static String checkCharType(char ch) {
+        if (ch >= 'A' && ch <= 'Z') ch = (char)(ch + 32);
+        if (ch >= 'a' && ch <= 'z') {
+            if ("aeiou".indexOf(ch) != -1) return "Vowel";
+            else return "Consonant";
+        }
+        return "Not a Letter";
+    }
+
+    public static String[][] classifyCharacters(String text) {
+        String[][] result = new String[text.length()][2];
+        for (int i = 0; i < text.length(); i++) {
+            result[i][0] = String.valueOf(text.charAt(i));
+            result[i][1] = checkCharType(text.charAt(i));
+        }
+        return result;
+    }
+
+    public static void display(String[][] arr) {
+        System.out.printf("%-10s %-15s\n", "Char", "Type");
+        System.out.println("----------------------");
+        for (String[] row : arr) {
+            System.out.printf("%-10s %-15s\n", row[0], row[1]);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a text: ");
+        String text = sc.nextLine();
+
+        String[][] result = classifyCharacters(text);
+        display(result);
+        sc.close();
+    }
+}
+
+//17.Trim leading & trailing spaces
+import java.util.Scanner;
+
+public class TrimStringDemo {
+
+  
+    public static int[] trimSpaces(String str) {
+        int start = 0, end = str.length() - 1;
+
+        while (start <= end && str.charAt(start) == ' ') start++;
+        while (end >= start && str.charAt(end) == ' ') end--;
+
+        return new int[]{start, end};
+    }
+
+    
+    public static String substringCustom(String str, int start, int end) {
+        String result = "";
+        for (int i = start; i <= end; i++) {
+            result += str.charAt(i);
+        }
+        return result;
+    }
+
+    public static boolean compareStrings(String s1, String s2) {
+        if (s1.length() != s2.length()) return false;
+        for (int i = 0; i < s1.length(); i++) {
+            if (s1.charAt
+
+//18.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
