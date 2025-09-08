@@ -1,1 +1,170 @@
+//1.Basic Calculator
+import java.util.Scanner;
+
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        double number1 = input.nextDouble();
+        System.out.print("Enter second number: ");
+        double number2 = input.nextDouble();
+
+        double add = number1 + number2;
+        double sub = number1 - number2;
+        double mul = number1 * number2;
+        double div = number1 / number2;
+
+        System.out.println("The addition, subtraction, multiplication and division value of 2 numbers " +
+                number1 + " and " + number2 + " is " + add + ", " + sub + ", " + mul + ", and " + div);
+        input.close();
+    }
+}
+
+//2.Area of a Triangle (sq inches and sq cm)
+import java.util.Scanner;
+
+public class TriangleArea {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter base in inches: ");
+        double base = input.nextDouble();
+        System.out.print("Enter height in inches: ");
+        double height = input.nextDouble();
+
+        double areaInInches = 0.5 * base * height;
+        double areaInCm = areaInInches * 6.4516; // 1 square inch = 6.4516 cm²
+
+        System.out.println("The area of triangle is " + areaInInches + " square inches and " + areaInCm + " square cm");
+        input.close();
+    }
+}
+
+//3.Side of Square from Perimeter
+import java.util.Scanner;
+
+public class SquareSide {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter perimeter of square: ");
+        double perimeter = input.nextDouble();
+
+        double side = perimeter / 4;
+        System.out.println("The length of the side is " + side + " whose perimeter is " + perimeter);
+        input.close();
+    }
+}
+
+//4. Distance Conversion (Feet → Yards & Miles)
+import java.util.Scanner;
+
+public class DistanceConvert {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter distance in feet: ");
+        double feet = input.nextDouble();
+
+        double yards = feet / 3;
+        double miles = yards / 1760;
+
+        System.out.println("The distance " + feet + " feet is " + yards + " yards and " + miles + " miles");
+        input.close();
+    }
+}
+
+//5. Purchase Price
+import java.util.Scanner;
+
+public class Purchase {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter unit price: ");
+        double unitPrice = input.nextDouble();
+        System.out.print("Enter quantity: ");
+        int quantity = input.nextInt();
+
+        double total = unitPrice * quantity;
+        System.out.println("The total purchase price is INR " + total + " if the quantity " + quantity + " and unit price is INR " + unitPrice);
+        input.close();
+    }
+}
+
+//6. Maximum Handshakes
+import java.util.Scanner;
+
+public class Handshakes {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter number of students: ");
+        int n = input.nextInt();
+
+        int handshakes = (n * (n - 1)) / 2;
+        System.out.println("The maximum number of handshakes possible is " + handshakes);
+        input.close();
+    }
+}
+
+//7.IntOperation.java
+import java.util.Scanner;
+
+public class IntOperation {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter value of a: ");
+        int a = input.nextInt();
+        System.out.print("Enter value of b: ");
+        int b = input.nextInt();
+        System.out.print("Enter value of c: ");
+        int c = input.nextInt();
+
+        int result1 = a + b * c;     
+        int result2 = a * b + c;     
+        int result3 = c + a / b;    
+        int result4 = a % b + c;     
+        System.out.println("The results of Int Operations are " + result1 + ", " + result2 + ", " + result3 + ", and " + result4);
+
+        input.close();
+    }
+}
+
+//8.DoubleOpt.java
+import java.util.Scanner;
+
+public class DoubleOpt {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter value of a: ");
+        double a = input.nextDouble();
+        System.out.print("Enter value of b: ");
+        double b = input.nextDouble();
+        System.out.print("Enter value of c: ");
+        double c = input.nextDouble();
+
+        double result1 = a + b * c;  
+        double result2 = a * b + c;   
+        double result3 = c + a / b;  
+        double result4 = a % b + c;  
+        System.out.println("The results of Double Operations are " + result1 + ", " + result2 + ", " + result3 + ", and " + result4);
+
+        input.close();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
