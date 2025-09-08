@@ -285,6 +285,438 @@ public class MultiplicationTable {
     }
 }
 
+//19.FizzBuzz (for loop)
+import java.util.Scanner;
+
+public class FizzBuzzFor {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a positive integer: ");
+        int n = sc.nextInt();
+
+        if (n > 0) {
+            for (int i = 1; i <= n; i++) {
+                if (i % 3 == 0 && i % 5 == 0) {
+                    System.out.println("FizzBuzz");
+                } else if (i % 3 == 0) {
+                    System.out.println("Fizz");
+                } else if (i % 5 == 0) {
+                    System.out.println("Buzz");
+                } else {
+                    System.out.println(i);
+                }
+            }
+        } else {
+            System.out.println("Not a positive integer!");
+        }
+        sc.close();
+    }
+}
+
+//20.FizzBuzz (while loop)
+import java.util.Scanner;
+
+public class FizzBuzzWhile {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a positive integer: ");
+        int n = sc.nextInt();
+
+        if (n > 0) {
+            int i = 1;
+            while (i <= n) {
+                if (i % 3 == 0 && i % 5 == 0) {
+                    System.out.println("FizzBuzz");
+                } else if (i % 3 == 0) {
+                    System.out.println("Fizz");
+                } else if (i % 5 == 0) {
+                    System.out.println("Buzz");
+                } else {
+                    System.out.println(i);
+                }
+                i++;
+            }
+        } else {
+            System.out.println("Not a positive integer!");
+        }
+        sc.close();
+    }
+}
+
+//21.Youngest & Tallest Friend
+import java.util.Scanner;
+
+public class FriendsComparison {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Amar's age and height: ");
+        int age1 = sc.nextInt(); 
+        int height1 = sc.nextInt();
+
+        System.out.print("Enter Akbar's age and height: ");
+        int age2 = sc.nextInt(); 
+        int height2 = sc.nextInt();
+
+        System.out.print("Enter Anthony's age and height: ");
+        int age3 = sc.nextInt(); 
+        int height3 = sc.nextInt();
+
+        // Youngest
+        if (age1 < age2 && age1 < age3) {
+            System.out.println("Amar is the youngest.");
+        } else if (age2 < age1 && age2 < age3) {
+            System.out.println("Akbar is the youngest.");
+        } else {
+            System.out.println("Anthony is the youngest.");
+        }
+
+        // Tallest
+        if (height1 > height2 && height1 > height3) {
+            System.out.println("Amar is the tallest.");
+        } else if (height2 > height1 && height2 > height3) {
+            System.out.println("Akbar is the tallest.");
+        } else {
+            System.out.println("Anthony is the tallest.");
+        }
+
+        sc.close();
+    }
+}
+
+22.Factors (for loop)
+import java.util.Scanner;
+
+public class FactorsFor {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a positive integer: ");
+        int number = sc.nextInt();
+
+        if (number > 0) {
+            System.out.println("Factors of " + number + " are:");
+            for (int i = 1; i <= number; i++) {
+                if (number % i == 0) {
+                    System.out.print(i + " ");
+                }
+            }
+        } else {
+            System.out.println("Invalid input!");
+        }
+        sc.close();
+    }
+}
+
+//23.Factors (while loop)
+import java.util.Scanner;
+
+public class FactorsWhile {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a positive integer: ");
+        int number = sc.nextInt();
+
+        if (number > 0) {
+            int i = 1;
+            System.out.println("Factors of " + number + " are:");
+            while (i <= number) {
+                if (number % i == 0) {
+                    System.out.print(i + " ");
+                }
+                i++;
+            }
+        } else {
+            System.out.println("Invalid input!");
+        }
+        sc.close();
+    }
+}
+
+//24.Leap Year (multiple if-else statements)
+import java.util.Scanner;
+
+public class LeapYearMultiIf {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a year: ");
+        int year = sc.nextInt();
+
+        if (year < 1582) {
+            System.out.println("Year must be >= 1582 (Gregorian Calendar).");
+        } else {
+            if (year % 400 == 0) {
+                System.out.println(year + " is a Leap Year.");
+            } else if (year % 100 == 0) {
+                System.out.println(year + " is NOT a Leap Year.");
+            } else if (year % 4 == 0) {
+                System.out.println(year + " is a Leap Year.");
+            } else {
+                System.out.println(year + " is NOT a Leap Year.");
+            }
+        }
+        sc.close();
+    }
+}
+
+//25.Leap Year (single if with logical operators)
+import java.util.Scanner;
+
+public class LeapYearLogical {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a year: ");
+        int year = sc.nextInt();
+
+        if (year >= 1582 && (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))) {
+            System.out.println(year + " is a Leap Year.");
+        } else if (year >= 1582) {
+            System.out.println(year + " is NOT a Leap Year.");
+        } else {
+            System.out.println("Year must be >= 1582 (Gregorian Calendar).");
+        }
+
+        sc.close();
+    }
+}
+
+//26.Percentage & Grade
+import java.util.Scanner;
+
+public class StudentGrade {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter marks in Physics: ");
+        int physics = sc.nextInt();
+        System.out.print("Enter marks in Chemistry: ");
+        int chemistry = sc.nextInt();
+        System.out.print("Enter marks in Maths: ");
+        int maths = sc.nextInt();
+
+        double average = (physics + chemistry + maths) / 3.0;
+        System.out.println("Average Marks = " + average);
+
+        if (average >= 90) {
+            System.out.println("Grade: A+ (Excellent)");
+        } else if (average >= 75) {
+            System.out.println("Grade: A (Very Good)");
+        } else if (average >= 60) {
+            System.out.println("Grade: B (Good)");
+        } else if (average >= 40) {
+            System.out.println("Grade: C (Pass)");
+        } else {
+            System.out.println("Grade: F (Fail)");
+        }
+        sc.close();
+    }
+}
+
+//27.Prime Number Check
+import java.util.Scanner;
+
+public class PrimeCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+
+        boolean isPrime = true;
+
+        if (number <= 1) {
+            isPrime = false;
+        } else {
+            for (int i = 2; i <= number / 2; i++) {
+                if (number % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        if (isPrime) {
+            System.out.println(number + " is a Prime Number.");
+        } else {
+            System.out.println(number + " is NOT a Prime Number.");
+        }
+        sc.close();
+    }
+}
+
+//28.Armstrong Number
+import java.util.Scanner;
+
+public class ArmstrongCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+
+        int original = number, sum = 0;
+        while (number > 0) {
+            int digit = number % 10;
+            sum += digit * digit * digit;
+            number = number / 10;
+        }
+
+        if (original == sum) {
+            System.out.println(original + " is an Armstrong Number.");
+        } else {
+            System.out.println(original + " is NOT an Armstrong Number.");
+        }
+        sc.close();
+    }
+}
+
+//29.Count Digits
+import java.util.Scanner;
+
+public class CountDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int number = sc.nextInt();
+
+        int count = 0, temp = number;
+        if (temp == 0) count = 1;
+        while (temp != 0) {
+            temp /= 10;
+            count++;
+        }
+
+        System.out.println("Number of digits in " + number + " = " + count);
+        sc.close();
+    }
+}
+
+//30.BMI Calculator
+import java.util.Scanner;
+
+public class BMICalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter weight in kg: ");
+        double weight = sc.nextDouble();
+        System.out.print("Enter height in cm: ");
+        double heightCm = sc.nextDouble();
+
+        double heightM = heightCm / 100;
+        double bmi = weight / (heightM * heightM);
+
+        System.out.println("BMI = " + bmi);
+
+        if (bmi < 18.5) {
+            System.out.println("Underweight");
+        } else if (bmi < 24.9) {
+            System.out.println("Normal weight");
+        } else if (bmi < 29.9) {
+            System.out.println("Overweight");
+        } else {
+            System.out.println("Obese");
+        }
+        sc.close();
+    }
+}
+
+//31.Harshad Number
+import java.util.Scanner;
+
+public class HarshadNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+
+        int sum = 0, temp = number;
+        while (temp > 0) {
+            sum += temp % 10;
+            temp /= 10;
+        }
+
+        if (number % sum == 0) {
+            System.out.println(number + " is a Harshad Number.");
+        } else {
+            System.out.println(number + " is NOT a Harshad Number.");
+        }
+        sc.close();
+    }
+}
+
+//32.Abundant Number
+import java.util.Scanner;
+
+public class AbundantNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+
+        int sum = 0;
+        for (int i = 1; i < number; i++) {
+            if (number % i == 0) {
+                sum += i;
+            }
+        }
+
+        if (sum > number) {
+            System.out.println(number + " is an Abundant Number.");
+        } else {
+            System.out.println(number + " is NOT an Abundant Number.");
+        }
+        sc.close();
+    }
+}
+
+//33.Calculator using Switch
+import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        double first = sc.nextDouble();
+        System.out.print("Enter second number: ");
+        double second = sc.nextDouble();
+        System.out.print("Enter operator (+, -, *, /): ");
+        String op = sc.next();
+
+        switch (op) {
+            case "+":
+                System.out.println("Result = " + (first + second));
+                break;
+            case "-":
+                System.out.println("Result = " + (first - second));
+                break;
+            case "*":
+                System.out.println("Result = " + (first * second));
+                break;
+            case "/":
+                if (second != 0) {
+                    System.out.println("Result = " + (first / second));
+                } else {
+                    System.out.println("Error: Division by zero!");
+                }
+                break;
+            default:
+                System.out.println("Invalid Operator");
+        }
+        sc.close();
+    }
+}
+
+//34.Day of Week (Zeller’s Congruence)
+public class DayOfWeek {
+    public static void main(String[] args) {
+        int m = Integer.parseInt(args[0]); // month
+        int d = Integer.parseInt(args[1]); // day
+        int y = Integer.parseInt(args[2]); // year
+
+        int y0 = y - (14 - m) / 12;
+        int x = y0 + y0/4 - y0/100 + y0/400;
+        int m0 = m + 12 * ((14 - m) / 12) - 2;
+        int d0 = (d + x + (31*m0)/12) % 7;
+
+        System.out.println("Day of week = " + d0);
+    }
+}
 
 
 
