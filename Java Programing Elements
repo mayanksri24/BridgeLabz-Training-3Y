@@ -118,6 +118,135 @@ public class HeightConvert {
     }
 }
 
+//11.
+import java.util.Scanner;
+
+public class BasicCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        double number1 = sc.nextDouble();
+
+        System.out.print("Enter second number: ");
+        double number2 = sc.nextDouble();
+
+        double add = number1 + number2;
+        double sub = number1 - number2;
+        double mul = number1 * number2;
+        double div = number2 != 0 ? number1 / number2 : Double.NaN;
+
+        System.out.println("The addition, subtraction, multiplication and division value of 2 numbers " 
+            + number1 + " and " + number2 + " is " + add + ", " + sub + ", " + mul + ", and " + div);
+
+        sc.close();
+    }
+}
+
+//12.
+import java.util.Scanner;
+
+public class AreaOfTriangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter base: ");
+        double base = sc.nextDouble();
+
+        System.out.print("Enter height: ");
+        double height = sc.nextDouble();
+
+        double areaInInches = 0.5 * base * height;
+        double areaInCm = areaInInches * 6.4516;
+
+        System.out.println("Area of triangle in square inches is " + areaInInches + 
+                           " while in square centimeters is " + areaInCm);
+
+        sc.close();
+    }
+}
+
+//13.
+import java.util.Scanner;
+
+public class SquareSideFinder {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter perimeter: ");
+        double perimeter = sc.nextDouble();
+
+        double side = perimeter / 4;
+
+        System.out.println("The length of the side is " + side + " whose perimeter is " + perimeter);
+
+        sc.close();
+    }
+}
+
+
+//14.
+import java.util.Scanner;
+
+public class DistanceConverter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter distance in feet: ");
+        double feet = sc.nextDouble();
+
+        double yards = feet / 3;
+        double miles = yards / 1760;
+
+        System.out.println("The distance is " + yards + " yards and " + miles + " miles");
+
+        sc.close();
+    }
+}
+
+
+//15.
+import java.util.Scanner;
+
+public class PurchasePrice {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter unit price: ");
+        double unitPrice = sc.nextDouble();
+
+        System.out.print("Enter quantity: ");
+        int quantity = sc.nextInt();
+
+        double total = unitPrice * quantity;
+
+        System.out.println("The total purchase price is INR " + total + 
+                           " if the quantity " + quantity + 
+                           " and unit price is INR " + unitPrice);
+
+        sc.close();
+    }
+}
+
+//16.
+import java.util.Scanner;
+
+public class HandshakeProblem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of students: ");
+        int n = sc.nextInt();
+
+        int handshakes = (n * (n - 1)) / 2;
+
+        System.out.println("The maximum number of handshakes possible is " + handshakes);
+
+        sc.close();
+    }
+}
+
+
 
 
 
