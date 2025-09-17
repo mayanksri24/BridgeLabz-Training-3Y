@@ -1,27 +1,22 @@
 
-package com.bridgelabz.oops.levelone;
 
-public class EmployeeInfo {
-    String empName;
-    int empId;
-    double empSalary;
+class Employee {
+    private String name;
+    private int id;
+    private double salary;
 
-    // Constructor
-    EmployeeInfo(String name, int id, double salary) {
-        empName = name;
-        empId = id;
-        empSalary = salary;
+    Employee(String n, int i, double s) {
+        name = n;
+        id = i;
+        salary = s;
     }
 
-    // Method to show details
-    void showDetails() {
-        System.out.println("Name : " + empName);
-        System.out.println("ID   : " + empId);
-        System.out.println("Salary : " + empSalary);
+    void print() {
+        System.out.println("Employee: " + name + " | ID: " + id + " | Salary: " + salary);
     }
 
     public static void main(String[] args) {
-        EmployeeInfo e1 = new EmployeeInfo("Sohan", 101, 45000);
-        e1.showDetails();
+        Employee e = new Employee("Rohan", 200, 55000);
+        e.print();
     }
 }
