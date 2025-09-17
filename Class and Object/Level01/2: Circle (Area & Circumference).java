@@ -1,24 +1,19 @@
 
-package com.bridgelabz.oops.levelone;
 
-public class CircleInfo {
-    double r;
+class Circle {
+    private double radius;
 
-    CircleInfo(double r) {
-        this.r = r;
+    Circle(double r) {
+        radius = r;
     }
 
-    double computeArea() {
-        return Math.PI * r * r;
-    }
+    double area() { return Math.PI * radius * radius; }
 
-    double computeCircumference() {
-        return 2 * Math.PI * r;
-    }
+    double perimeter() { return 2 * Math.PI * radius; }
 
     public static void main(String[] args) {
-        CircleInfo c = new CircleInfo(3.2);
-        System.out.printf("Area = %.2f\n", c.computeArea());
-        System.out.printf("Circumference = %.2f\n", c.computeCircumference());
+        Circle c = new Circle(5);
+        System.out.println("Area : " + c.area());
+        System.out.println("Circumference : " + c.perimeter());
     }
 }
