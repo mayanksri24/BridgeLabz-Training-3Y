@@ -1,30 +1,24 @@
 
-package com.bridgelabz.oops.levelone;
 
-public class BookInfo {
-    String title;
-    String writer;
-    double cost;
+class Book {
+    private String name;
+    private String author;
+    private double price;
 
-    // constructor
-    BookInfo(String t, String w, double c) {
-        title = t;
-        writer = w;
-        cost = c;
+    Book(String n, String a, double p) {
+        name = n;
+        author = a;
+        price = p;
     }
 
-    void printBook() {
-        System.out.println("Book Title : " + title);
-        System.out.println("Author     : " + writer);
-        System.out.println("Price      : " + cost);
-        System.out.println("-------------------");
+    void show() {
+        System.out.println(name + " by " + author + " costs " + price);
     }
 
     public static void main(String[] args) {
-        BookInfo b1 = new BookInfo("Harry Potter", "J.K. Rowling", 799);
-        BookInfo b2 = new BookInfo("The Alchemist", "Paulo Coelho", 499);
-
-        b1.printBook();
-        b2.printBook();
+        Book b1 = new Book("Wings of Fire", "A.P.J. Abdul Kalam", 350);
+        Book b2 = new Book("Rich Dad Poor Dad", "Robert Kiyosaki", 599);
+        b1.show();
+        b2.show();
     }
 }
